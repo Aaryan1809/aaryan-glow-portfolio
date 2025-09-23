@@ -36,16 +36,16 @@ const Projects = () => {
   return (
     <section id="projects" className="section-padding">
       <div className="container-custom">
-        <div className="text-center mb-16 animate-fade-in-up">
-          <h2 className="text-4xl lg:text-5xl font-bold gradient-text mb-6">
+        <div className="text-center mb-12 lg:mb-16 animate-fade-in-up">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold gradient-text mb-4 lg:mb-6">
             Featured Projects
           </h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+          <p className="text-base lg:text-xl text-muted-foreground max-w-3xl mx-auto px-4">
             A showcase of projects that reflect my learning journey and passion for creating meaningful solutions
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-8">
+        <div className="grid lg:grid-cols-2 gap-6 lg:gap-8">
           {projects.map((project, index) => {
             const IconComponent = project.icon;
             const isEven = index % 2 === 0;
@@ -53,35 +53,35 @@ const Projects = () => {
             return (
               <Card 
                 key={project.title}
-                className={`card-glow hover-glow ${isEven ? 'animate-fade-in-left' : 'animate-fade-in-right'} overflow-hidden`}
+                className={`card-glow hover:shadow-lg transition-all duration-300 ${isEven ? 'animate-fade-in-left' : 'animate-fade-in-right'} overflow-hidden`}
                 style={{ animationDelay: `${index * 0.2}s` }}
               >
-                <CardHeader className="relative">
-                  <div className={`absolute top-0 right-0 w-32 h-32 bg-${project.color}/10 rounded-full blur-2xl`}></div>
-                  <div className="flex items-start gap-4 relative z-10">
-                    <div className={`p-3 bg-${project.color}/20 rounded-lg shrink-0`}>
-                      <IconComponent className={`w-6 h-6 text-${project.color}`} />
+                <CardHeader className="relative p-4 lg:p-6">
+                  <div className={`absolute top-0 right-0 w-24 h-24 lg:w-32 lg:h-32 bg-${project.color}/10 rounded-full blur-xl lg:blur-2xl`}></div>
+                  <div className="flex items-start gap-3 lg:gap-4 relative z-10">
+                    <div className={`p-2 lg:p-3 bg-${project.color}/20 rounded-lg shrink-0`}>
+                      <IconComponent className={`w-5 h-5 lg:w-6 lg:h-6 text-${project.color}`} />
                     </div>
-                    <div className="flex-1">
-                      <CardTitle className="text-2xl mb-2">{project.title}</CardTitle>
-                      <CardDescription className="text-base leading-relaxed">
+                    <div className="flex-1 min-w-0">
+                      <CardTitle className="text-lg lg:text-2xl mb-2 leading-tight">{project.title}</CardTitle>
+                      <CardDescription className="text-sm lg:text-base leading-relaxed">
                         {project.description}
                       </CardDescription>
                     </div>
                   </div>
                 </CardHeader>
                 
-                <CardContent className="space-y-6">
+                <CardContent className="space-y-4 lg:space-y-6 p-4 lg:p-6 pt-0">
                   {/* Key Features */}
                   <div>
-                    <h4 className="font-semibold mb-3 text-sm uppercase tracking-wider text-muted-foreground">
+                    <h4 className="font-semibold mb-2 lg:mb-3 text-xs lg:text-sm uppercase tracking-wider text-muted-foreground">
                       Key Features
                     </h4>
-                    <ul className="space-y-2">
+                    <ul className="space-y-1.5 lg:space-y-2">
                       {project.features.map((feature, featureIndex) => (
-                        <li key={featureIndex} className="flex items-center gap-2 text-sm">
-                          <div className={`w-1.5 h-1.5 bg-${project.color} rounded-full`}></div>
-                          {feature}
+                        <li key={featureIndex} className="flex items-center gap-2 text-xs lg:text-sm">
+                          <div className={`w-1.5 h-1.5 bg-${project.color} rounded-full shrink-0`}></div>
+                          <span className="leading-relaxed">{feature}</span>
                         </li>
                       ))}
                     </ul>
@@ -89,15 +89,15 @@ const Projects = () => {
 
                   {/* Technologies */}
                   <div>
-                    <h4 className="font-semibold mb-3 text-sm uppercase tracking-wider text-muted-foreground">
+                    <h4 className="font-semibold mb-2 lg:mb-3 text-xs lg:text-sm uppercase tracking-wider text-muted-foreground">
                       Technologies
                     </h4>
-                    <div className="flex flex-wrap gap-2">
+                    <div className="flex flex-wrap gap-1.5 lg:gap-2">
                       {project.tags.map((tag) => (
                         <Badge 
                           key={tag} 
                           variant="secondary"
-                          className="bg-secondary/50 hover:bg-secondary/80 transition-colors"
+                          className="bg-secondary/50 hover:bg-secondary/80 transition-colors text-xs px-2 py-1"
                         >
                           {tag}
                         </Badge>
@@ -106,13 +106,13 @@ const Projects = () => {
                   </div>
 
                   {/* Action Buttons */}
-                  <div className="flex gap-3 pt-4">
-                    <Button size="sm" variant="outline" className="flex-1 hover:bg-secondary">
-                      <Github className="w-4 h-4 mr-2" />
+                  <div className="flex gap-2 lg:gap-3 pt-2 lg:pt-4">
+                    <Button size="sm" variant="outline" className="flex-1 hover:bg-secondary text-xs lg:text-sm py-2">
+                      <Github className="w-3 h-3 lg:w-4 lg:h-4 mr-1 lg:mr-2" />
                       Code
                     </Button>
-                    <Button size="sm" variant="outline" className="flex-1 hover:bg-secondary">
-                      <ExternalLink className="w-4 h-4 mr-2" />
+                    <Button size="sm" variant="outline" className="flex-1 hover:bg-secondary text-xs lg:text-sm py-2">
+                      <ExternalLink className="w-3 h-3 lg:w-4 lg:h-4 mr-1 lg:mr-2" />
                       Demo
                     </Button>
                   </div>

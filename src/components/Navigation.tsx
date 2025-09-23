@@ -32,9 +32,9 @@ const Navigation = () => {
 
   return (
     <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-      isScrolled ? "bg-background/80 backdrop-blur-lg border-b border-border" : ""
+      isScrolled ? "bg-background/90 backdrop-blur-lg border-b border-border" : ""
     }`}>
-      <div className="container-custom px-6 py-4">
+      <div className="container-custom px-4 py-3 lg:px-6 lg:py-4">
         <div className="flex items-center justify-between">
           {/* Logo */}
           <button
